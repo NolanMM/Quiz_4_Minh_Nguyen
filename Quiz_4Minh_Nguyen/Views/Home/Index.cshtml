@@ -1,0 +1,31 @@
+﻿@model List<Bpmeasurement>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">BP Meassurements</h1>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Systolic</th>
+                <th>Diastolic</th>
+                <th>Date of Measurement</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Bpmeasurement BPMeasurements in Model)
+            {
+                <tr>
+                    <td>@BPMeasurements.Systolic</td>
+                    <td>@BPMeasurements.Diastolic</td>
+                    <td>@BPMeasurements.MeasurementDate.Date</td>
+                    <td>@BPMeasurements.MeasurementPosition?.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
